@@ -1,0 +1,31 @@
+{
+    "name": "201created/support",
+    "description": "Various support functionality used in 201CREATED projects too small for their own libraries",
+    "type": "library",
+    "license": "MIT",
+    "version": "0.1.0",
+    "authors": [
+        {
+            "name": "Marko Vujnovic",
+            "email": "mv@201created.de"
+        }
+    ],
+    "require": {
+        "symfony/string": "^5.0",
+        "tightenco/collect": "^7.4"
+    },
+    "require-dev": {
+        "phpspec/prophecy-phpunit": "^2.0",
+        "phpunit/phpunit": "^9.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "C201\\Support\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "C201\\Support\\Tests\\": "tests/"
+        }
+    }
+}
