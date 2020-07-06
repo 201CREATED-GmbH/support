@@ -71,4 +71,13 @@ abstract class Enum
     {
         return $this->value;
     }
+
+    public function equals(Enum $other): bool
+    {
+        if (get_class($other) !== static::class) {
+            return false;
+        }
+
+        return $this->value === $other->value;
+    }
 }

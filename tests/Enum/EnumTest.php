@@ -48,4 +48,34 @@ class EnumTest extends TestCase
         $this->expectException(\LogicException::class);
         EnumTestProxy::nonexistingConstant();
     }
+
+    public function testEqualsReturnsTrueIfBothEnumsAreOfSameClassAndHaveSameValue(): void
+    {
+        $e1 = EnumTestProxy::testKonst1();
+        $e2 = EnumTestProxy::testKonst1();
+        $this->assertEquals(get_class($e1), get_class($e2));
+        $this->assertEquals($e1->asString(), $e2->asString());
+
+        $this->assertTrue($e1->equals($e2));
+    }
+
+    public function testEqualsReturnsFalseIfEnumsHaveSameValueButAreOfDifferentClass(): void
+    {
+        $e1 = EnumTestProxy::testKonst1();
+        $e2 = EnumTestProxy2::testKonst1();
+        $this->assertNotEquals(get_class($e1), get_class($e2));
+        $this->assertEquals($e1->asString(), $e2->asString());
+
+        $this->assertFalse($e1->equals($e2));
+    }
+
+    public function testEqualsReturnsFalseIfEnumsAreOfSameClassButHaveDifferentValues(): void
+    {
+        $e1 = EnumTestProxy::testKonst1();
+        $e2 = EnumTestProxy::testKonst2();
+        $this->assertEquals(get_class($e1), get_class($e2));
+        $this->assertNotEquals($e1->asString(), $e2->asString());
+
+        $this->assertFalse($e1->equals($e2));
+    }
 }
