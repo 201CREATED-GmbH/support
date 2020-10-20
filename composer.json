@@ -3,7 +3,7 @@
     "description": "Various support functionality used in 201CREATED projects too small for their own libraries",
     "type": "library",
     "license": "MIT",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "authors": [
         {
             "name": "Marko Vujnovic",
